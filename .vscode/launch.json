@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-UserHubGerenciamentoDeUsuariosApplication<userhub>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.userhub.userhub.UserHubGerenciamentoDeUsuariosApplication",
+            "projectName": "userhub",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
