@@ -1,5 +1,6 @@
 package com.userhub.userhub.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,21 +17,22 @@ import com.userhub.userhub.services.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController implements UserUsecase {
+    @Autowired
     private UserService userService;
 
-    @Override
+    
     @PostMapping
     public ResponseEntity<User> saveUser(@RequestBody User user) {
         return this.userService.saveUser(user);
     }
 
-    @Override
+    
     @GetMapping("/{id}")
     public ResponseEntity<User> findUserById(@PathVariable String id) {
         return this.userService.findUserById(id);
     }
 
-    @Override
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUserById(@PathVariable String id) {
         return this.userService.deleteUserById(id);
