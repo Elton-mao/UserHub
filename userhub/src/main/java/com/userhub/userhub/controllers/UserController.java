@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.userhub.userhub.core.entities.user.User;
+import com.userhub.userhub.core.entities.user.UserDto;
 import com.userhub.userhub.core.usecases.UserUsecase;
 import com.userhub.userhub.services.UserService;
 
@@ -20,9 +21,8 @@ public class UserController implements UserUsecase {
     @Autowired
     private UserService userService;
 
-    
     @PostMapping
-    public ResponseEntity<User> saveUser(@RequestBody User user) {
+    public ResponseEntity<UserDto> saveUser(@RequestBody UserDto user) {
         return this.userService.saveUser(user);
     }
 
@@ -37,5 +37,9 @@ public class UserController implements UserUsecase {
     public ResponseEntity<String> deleteUserById(@PathVariable String id) {
         return this.userService.deleteUserById(id);
     }
+
+
+   
+    
 
 }

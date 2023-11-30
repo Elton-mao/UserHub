@@ -23,7 +23,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String name; 
-    private String lastName;
     private String cpf;
+    private String password;
     private String email;
 }
