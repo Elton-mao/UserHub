@@ -23,7 +23,8 @@ public class UserService implements UserUsecase {
         newUser.setCpf(data.cpf());
         newUser.setPassword(data.password());
         this.userRepository.save(newUser);
-        return ResponseEntity.ok().body(data);
+        UserDto newUserDto = new UserDto(newUser.getName(), newUser.getCpf(), newUser.getPassword());
+        return ResponseEntity.ok().body(newUserDto);
     }
 
     public ResponseEntity<User> findUserById(String id) {
