@@ -18,12 +18,9 @@ public class UserService implements UserUsecase {
     private UserRepository userRepository;
 
     public ResponseEntity<UserDto> saveUser(UserDto data) {
-        User newUser = new User();
-        newUser.setName(data.name());
-        newUser.setCpf(data.cpf());
-        newUser.setPassword(data.password());
+        User newUser = new User(data.name(), data.cpf(),data.password(),data.email());
+        UserDto newUserDto = new UserDto(newUser.getName(), newUser.getCpf(), newUser.getPassword(),newUser.getEmail());
         this.userRepository.save(newUser);
-        UserDto newUserDto = new UserDto(newUser.getName(), newUser.getCpf(), newUser.getPassword());
         return ResponseEntity.ok().body(newUserDto);
     }
 
