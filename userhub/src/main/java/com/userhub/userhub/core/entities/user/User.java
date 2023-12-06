@@ -1,10 +1,13 @@
 package com.userhub.userhub.core.entities.user;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -29,12 +32,14 @@ public class User {
     private String name;
     @NotBlank 
     @Size(max = 40)
+    @CPF
     private String cpf;
     @NotBlank
     @Size(max = 16)
     private String password;
     @NotBlank
     @Size(max = 40)
+    @Email
     private String email;
     public User(String name, String cpf, String password, String email) {
         this.name = name;
