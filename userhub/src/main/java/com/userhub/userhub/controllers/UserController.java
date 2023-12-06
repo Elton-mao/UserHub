@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.userhub.userhub.core.entities.user.User;
 import com.userhub.userhub.core.entities.user.UserDto;
 import com.userhub.userhub.core.usecases.UserUsecase;
 import com.userhub.userhub.services.UserService;
@@ -28,7 +27,7 @@ public class UserController implements UserUsecase {
 
     
     @GetMapping("/{id}")
-    public ResponseEntity<User> findUserById(@PathVariable String id) {
+    public ResponseEntity<UserDto> findUserById(@PathVariable String id) {
         return this.userService.findUserById(id);
     }
 

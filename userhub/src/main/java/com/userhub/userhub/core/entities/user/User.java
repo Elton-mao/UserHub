@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,12 +25,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     @NotBlank
+    @Size(max = 40)
     private String name;
     @NotBlank 
+    @Size(max = 40)
     private String cpf;
     @NotBlank
+    @Size(max = 16)
     private String password;
     @NotBlank
+    @Size(max = 40)
     private String email;
     public User(String name, String cpf, String password, String email) {
         this.name = name;
