@@ -2,10 +2,14 @@ package com.userhub.userhub.core.entities.user;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.userhub.userhub.core.entities.address.Address;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -41,6 +45,12 @@ public class User {
     @Size(max = 40)
     @Email
     private String email;
+    
+    @ManyToOne
+    @JoinColumn(name="address_id")
+    private Address address;
+    
+
     public User(String name, String cpf, String password, String email) {
         this.name = name;
         this.cpf = cpf;
