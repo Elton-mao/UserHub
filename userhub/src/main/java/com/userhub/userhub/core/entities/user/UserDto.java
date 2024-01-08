@@ -1,5 +1,7 @@
 package com.userhub.userhub.core.entities.user;
 
-public record UserDto(String name,String cpf,String password,String email ) {
+import com.userhub.userhub.core.entities.address.Address;
+
+public record UserDto(String name,String cpf,String password,String email,Address address ) {
     
 }

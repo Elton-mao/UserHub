@@ -23,7 +23,7 @@ public class UserService implements UserUsecase {
 
         User newUser = new User(data.name(), data.cpf(), data.password(), data.email());
         UserDto newUserDto = new UserDto(newUser.getName(), newUser.getCpf(), newUser.getPassword(),
-                newUser.getEmail());
+        newUser.getEmail(),newUser.getAddress());
         this.userRepository.save(newUser);
         return ResponseEntity.ok().body(newUserDto);
     }
@@ -33,7 +33,7 @@ public class UserService implements UserUsecase {
         Optional<User> optinalUser = this.userRepository.findById(id);
         User user = optinalUser.orElseThrow(() -> new EntityNotFoundException(
                 "Nonexistent Record: The provided ID may not exist in the database, possibly due to deletion or an incorrect ID. "));
-                UserDto userDtoresponse = new UserDto(user.getName(),user.getCpf(), user.getEmail(),user.getPassword());
+                UserDto userDtoresponse = new UserDto(user.getName(),user.getCpf(), user.getEmail(),user.getPassword(), user.getAddress());
                 return ResponseEntity.ok().body(userDtoresponse);
 
     }

@@ -4,12 +4,14 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import com.userhub.userhub.core.entities.address.Address;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -19,6 +21,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @NoArgsConstructor
@@ -26,6 +29,7 @@ import lombok.Setter;
 @EqualsAndHashCode
 @Getter
 @Setter
+@ToString
 @Table(name = "users")
 public class User {
     @Id
@@ -45,16 +49,17 @@ public class User {
     @Size(max = 40)
     @Email
     private String email;
-    
-    @ManyToOne
+
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name="address_id")
     private Address address;
-    
+        
 
-    public User(String name, String cpf, String password, String email) {
+    public User(String name, String cpf, String password, String email, Address address) {
         this.name = name;
         this.cpf = cpf;
         this.password = password;
         this.email = email;
+        this.address = address ;
     }
 }
