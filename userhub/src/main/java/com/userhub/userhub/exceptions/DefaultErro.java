@@ -1,4 +1,4 @@
-package com.userhub.userhub.core.exceptions;
+package com.userhub.userhub.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

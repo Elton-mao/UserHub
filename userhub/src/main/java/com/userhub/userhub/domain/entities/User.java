@@ -1,8 +1,6 @@
-package com.userhub.userhub.core.entities.user;
+package com.userhub.userhub.domain.entities;
 
 import org.hibernate.validator.constraints.br.CPF;
-
-import com.userhub.userhub.core.entities.address.Address;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

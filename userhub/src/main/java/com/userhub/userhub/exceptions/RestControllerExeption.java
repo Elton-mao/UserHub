@@ -1,4 +1,4 @@
-package com.userhub.userhub.core.exceptions;
+package com.userhub.userhub.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

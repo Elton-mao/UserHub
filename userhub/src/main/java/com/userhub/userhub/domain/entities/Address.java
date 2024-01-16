@@ -1,4 +1,4 @@
-package com.userhub.userhub.core.entities.address;
+package com.userhub.userhub.domain.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
