@@ -25,5 +25,5 @@ public class Address {
     private int cep ;
     private int bairro;
     private int numero;
-    
+
 }
