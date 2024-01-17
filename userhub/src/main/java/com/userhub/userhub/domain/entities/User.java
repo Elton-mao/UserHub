@@ -48,9 +48,9 @@ public class User {
     @Email
     private String email;
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
     @JoinColumn(name="address_id")
-    private Address address;
+    private Address address  = new Address();
         
 
     public User(String name, String cpf, String password, String email, Address address) {
