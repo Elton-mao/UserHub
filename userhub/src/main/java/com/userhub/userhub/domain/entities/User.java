@@ -50,7 +50,7 @@ public class User {
 
     @OneToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
     @JoinColumn(name="address_id")
-    private Address address  = new Address();
+    private Address address;
         
 
     public User(String name, String cpf, String password, String email, Address address) {
@@ -58,6 +58,6 @@ public class User {
         this.cpf = cpf;
         this.password = password;
         this.email = email;
-        this.address = address ;
+        this.address = new Address() ;
     }
 }
