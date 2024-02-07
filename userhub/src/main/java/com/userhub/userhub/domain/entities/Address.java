@@ -22,8 +22,8 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    private int cep ;
-    private int bairro;
-    private int numero;
+    private int zipcode ;
+    private int district;
+    private int halseNumber;
 
 }

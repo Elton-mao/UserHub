@@ -15,6 +15,7 @@ public class UserService {
     private UserRepository uRepository ;
     @Autowired
     private AddressRepository aRepository;
+    @SuppressWarnings("null")
     public ResponseEntity<String> saveUser(User newUser){
         if (newUser != null && newUser.getAddress() != null) {
             
